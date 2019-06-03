@@ -5,5 +5,8 @@ services:
     build: ./api
     ports:
       - '3301:3300'
+    environment:
+      - APP_SETTINGS=project.config.ProductionConfig
     command: python manage.py runserver
+
 
