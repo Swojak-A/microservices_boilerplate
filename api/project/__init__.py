@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # project/__init__.py
 
 
