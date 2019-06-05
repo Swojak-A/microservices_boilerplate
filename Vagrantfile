@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   	sudo npm i -g pm2
 
   	# python and virtualenv installation
-    sudo apt install -y python3-pip python3-dev build-essential libssl-dev
+    sudo apt install -y python3-pip python3-dev build-essential libssl-dev libpq-dev
     sudo pip3 install pipenv
     export PIPENV_VENV_IN_PROJECT=1
     export VIRTUALENV_ALWAYS_COPY=1
@@ -44,7 +44,6 @@ end
 
 # psql - setting user password
 # sudo -u postgres psql
-# in psql shell: ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';
-
-# cd /vagrant/api
-# pipenv install -r requirements.txt
+# in psql shell: 
+# ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';
+# \q - to quit postfres console
