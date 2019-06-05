@@ -14,21 +14,37 @@ Vagrant.configure("2") do |config|
 
     sudo apt-get update
     
+    # nodejs installation
     curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     sudo apt-get install -y nodejs
     sudo npm i -g serve
   	sudo npm i -g pm2
 
+  	# python and virtualenv installation
     sudo apt install -y python3-pip python3-dev build-essential libssl-dev
-
     sudo pip3 install pipenv
-
     export PIPENV_VENV_IN_PROJECT=1
     export VIRTUALENV_ALWAYS_COPY=1
-    cd /vagrant/back && pipenv install 
+    cd /vagrant/api && pipenv install -r requirements.txt
 
+    # postgresql installation
+    sudo apt install -y postgresql 
+    sudo apt install -y postgresql-contrib
+    sudo apt-get install python-psycopg2
+		sudo apt-get install libpq-dev
+    sudo -u postgres createdb users_prod
+    sudo -u postgres createdb users_dev
+    sudo -u postgres createdb users_tests
 
     echo "xxxXXXxxx Done installing your virtual machine! xxxXXXxxx"
   SHELL
 end
 
+# next steps:
+
+# psql - setting user password
+# sudo -u postgres psql
+# in psql shell: ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';
+
+# cd /vagrant/api
+# pipenv install -r requirements.txt
