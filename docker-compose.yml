@@ -18,9 +18,10 @@ services:
     ports:
       - 3301:3300 # expose ports - HOST:CONTAINER
     environment:
+      - DOCKER_BUILD=1
       - APP_SETTINGS=project.config.DevelopmentConfig
       - DATABASE_URL=postgres://postgres:postgres@db:5432/users_dev
-      - DATABASE_TEST_URL=postgres://postgres:postgres@db:5432/users_test
+      - DATABASE_TEST_URL=postgres://postgres:postgres@db:5432/users_tests
     depends_on:
       db:
         condition: service_healthy
