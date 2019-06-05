@@ -4,5 +4,6 @@
 # Pipenv files
 api/Pipfile
 api/Pipfile.lock
+api/.venv
 
 
