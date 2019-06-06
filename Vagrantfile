@@ -30,8 +30,7 @@ Vagrant.configure("2") do |config|
     # postgresql installation
     sudo apt install -y postgresql 
     sudo apt install -y postgresql-contrib
-    sudo apt-get install python-psycopg2
-		sudo apt-get install libpq-dev
+    sudo apt-get install -y python-psycopg2
     sudo -u postgres createdb users_prod
     sudo -u postgres createdb users_dev
     sudo -u postgres createdb users_tests
